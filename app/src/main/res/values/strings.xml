@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">PM2E2Grupo5</string>
+    <string name="firma_del_contacto">Firma del contacto</string>
+    <string name="id">ID:</string>
+    <string name="_1">1</string>
+    <string name="nombre">Nombre:</string>
+    <string name="joshua_mclean">Joshua Mclean</string>
+    <string name="telefono">Telefono:</string>
+    <string name="_9566_9691">9566-9691</string>
+    <string name="longitud">Longitud:</string>
+    <string name="_14_02505405">14.02505405</string>
+    <string name="latitud">Latitud:</string>
+    <string name="_18_120145014">-18.120145014</string>
 </resources>
