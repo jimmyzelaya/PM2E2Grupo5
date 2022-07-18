@@ -22,6 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Base64;
 
 public class ActivityLista extends AppCompatActivity {
 
@@ -74,22 +75,26 @@ public class ActivityLista extends AppCompatActivity {
     }
 
     private void onResponse(JSONArray response) {
-        if (response.length() > 0) {
-            for (int i = 0; i < response.length(); i++) {
-                try {
-                    JSONObject objeto = response.getJSONObject(i);
-                    cont = new Contacts();
-                    cont.setId(objeto.getString("id"));
-                    cont.setNombre(objeto.getString("nombre"));
-                    cont.setTelefono(objeto.getString("telefono"));
-                    cont.setLatitud(objeto.getString("latitude"));
-                    cont.setLongitud(objeto.getString("longitude"));
-                    cont.setFirma((byte[]) objeto.get("firma"));
-                    contacts.add(cont);
-                } catch (JSONException e) {
-                    message(e.getMessage());
-                }
-            }
-        }
+//        if (response.length() > 0) {
+//            for (int i = 0; i < response.length(); i++) {
+//                try {
+//                    JSONObject objeto = response.getJSONObject(i);
+//                    cont = new Contacts();
+//                    cont.setId(objeto.getString("id"));
+//                    cont.setNombre(objeto.getString("nombre"));
+//                    cont.setTelefono(objeto.getString("telefono"));
+//                    cont.setLatitud(objeto.getString("latitude"));
+//                    cont.setLongitud(objeto.getString("longitude"));
+//                    byte[] decodedBytes = new byte[0];
+//                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+//                        decodedBytes = Base64.getDecoder().decode(objeto.getString("firma"));
+//                    }
+//                    cont.setFirma(decodedBytes);
+//                    contacts.add(cont);
+//                } catch (JSONException e) {
+//                    message(e.getMessage());
+//                }
+//            }
+//        }
     }
 }
