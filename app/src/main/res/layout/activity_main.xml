@@ -22,7 +22,7 @@
 
     <Button
         android:id="@+id/btnLista"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#3F51B5"
         android:text="CONTACTOS"
@@ -35,7 +35,7 @@
 
     <Button
         android:id="@+id/btnGuardar"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#3F51B5"
         android:text="GUARDAR CONTACTO"
@@ -168,5 +168,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lienzo" />
+
+    <Button
+        android:id="@+id/btnGPS"
+        android:layout_width="68dp"
+        android:layout_height="95dp"
+        android:backgroundTint="#3F51B5"
+        android:text="GPS"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.941"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
