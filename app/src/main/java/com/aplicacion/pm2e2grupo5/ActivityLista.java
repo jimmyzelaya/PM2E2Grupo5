@@ -1,8 +1,11 @@
 package com.aplicacion.pm2e2grupo5;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -38,6 +41,13 @@ public class ActivityLista extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista);
         init();
+        btnLAtras.setOnClickListener(this::onClickBack);
+    }
+
+    private void onClickBack(View view) {
+        Intent ventana = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(ventana);
+        finish();
     }
 
     private void init(){
@@ -70,31 +80,31 @@ public class ActivityLista extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
     }
 
-    private void onErrorResponse(VolleyError error) {
+    private void onErrorResponse(@NonNull VolleyError error) {
         message(error.getMessage());
     }
 
-    private void onResponse(JSONArray response) {
-//        if (response.length() > 0) {
-//            for (int i = 0; i < response.length(); i++) {
-//                try {
-//                    JSONObject objeto = response.getJSONObject(i);
-//                    cont = new Contacts();
-//                    cont.setId(objeto.getString("id"));
-//                    cont.setNombre(objeto.getString("nombre"));
-//                    cont.setTelefono(objeto.getString("telefono"));
-//                    cont.setLatitud(objeto.getString("latitude"));
-//                    cont.setLongitud(objeto.getString("longitude"));
-//                    byte[] decodedBytes = new byte[0];
-//                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-//                        decodedBytes = Base64.getDecoder().decode(objeto.getString("firma"));
-//                    }
-//                    cont.setFirma(decodedBytes);
-//                    contacts.add(cont);
-//                } catch (JSONException e) {
-//                    message(e.getMessage());
-//                }
-//            }
-//        }
+    private void onResponse(@NonNull JSONArray response) {
+        if (response.length() > 0) {
+            for (int i = 0; i < response.length(); i++) {
+                try {
+                    JSONObject objeto = response.getJSONObject(i);
+                    cont = new Contacts();
+                    cont.setId(objeto.getString("id"));
+                    cont.setNombre(objeto.getString("nombre"));
+                    cont.setTelefono(objeto.getString("telefono"));
+                    cont.setLatitud(objeto.getString("latitude"));
+                    cont.setLongitud(objeto.getString("longitude"));
+                    byte[] decodedBytes = null;
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                        decodedBytes = Base64.getDecoder().decode(objeto.getString("firma"));
+                    }
+                    cont.setFirma(decodedBytes);
+                    contacts.add(cont);
+                } catch (JSONException e) {
+                    message(e.getMessage());
+                }
+            }
+        }
     }
 }
